@@ -1,6 +1,6 @@
 /* Andrew's Bakery: "Open now" badge and next-opening countdown (Senior Dev 5).
    Mounts into every element with [data-open-now]. Add data-open-now="full" to also list the week's hours.
-   Hours live in window.AB_HOURS (sample hours, Monday to Saturday; closed Sunday) so other scripts can read them.
+   Hours live in window.AB_HOURS (sample hours; closed Monday, same as the visit page) so other scripts can read them.
    Uses the visitor's own clock. Only tokens.css variables are used for colour. */
 (function () {
   'use strict';
@@ -9,13 +9,13 @@
   var HOURS = window.AB_HOURS || {
     sample: true,
     days: {
-      0: null,
-      1: [7, 0, 17, 0],
+      0: [8, 0, 14, 0],
+      1: null,
       2: [7, 0, 17, 0],
       3: [7, 0, 17, 0],
       4: [7, 0, 17, 0],
-      5: [7, 0, 17, 0],
-      6: [8, 0, 16, 0]
+      5: [7, 0, 18, 0],
+      6: [7, 30, 16, 0]
     }
   };
   window.AB_HOURS = HOURS;
