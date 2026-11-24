@@ -1,0 +1,30 @@
+/* Cake size guide (Senior Dev 7). Tokens only. */
+.cs { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: clamp(1.25rem, 4vw, 3rem); color: var(--ink); max-width: var(--max-w); margin-inline: auto; }
+.cs__title { font-family: var(--font-display); font-size: var(--fs-h3); letter-spacing: var(--ls-heading); line-height: var(--lh-snug); margin: 0 0 var(--space-3); }
+.cs__lede { color: var(--ink-muted); max-width: var(--measure); margin: 0 0 var(--space-6); line-height: var(--lh-body); }
+.cs__grid { display: grid; gap: var(--space-6); grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 760px) { .cs__grid { grid-template-columns: 1fr 1fr; } }
+.cs__field { margin: 0 0 var(--space-5); padding: 0; border: 0; min-width: 0; }
+.cs label, .cs legend { display: block; font-weight: 600; font-size: var(--fs-sm); margin-bottom: var(--space-2); padding: 0; }
+.cs__row { display: flex; align-items: center; gap: var(--space-3); }
+.cs input[type=number] { width: 7rem; font: inherit; font-size: var(--fs-lead); font-family: var(--font-display); padding: .5rem .9rem; border: 1.5px solid var(--line); border-radius: var(--radius-sm); background: var(--bg); color: var(--ink); }
+.cs__unit { color: var(--ink-muted); }
+.cs__range { width: 100%; margin-top: var(--space-4); accent-color: var(--accent); }
+.cs input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.cs input[aria-invalid=true] { border-color: var(--accent-hover); }
+.cs__error { color: var(--accent-hover); font-size: var(--fs-sm); margin: var(--space-2) 0 0; }
+.cs__slices label { display: flex; align-items: center; gap: var(--space-3); font-weight: 400; padding: .7rem 1rem; border: 1.5px solid var(--line); border-radius: var(--radius-sm); margin-bottom: var(--space-2); cursor: pointer; transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease); }
+.cs__slices label:hover { border-color: var(--accent); }
+.cs__slices label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.cs__slices input { accent-color: var(--accent); }
+.cs__result { text-align: center; background: var(--bg-dark); color: var(--ink-on-dark); border-radius: var(--radius); padding: var(--space-6) var(--space-5); background-image: var(--glow-dark); }
+.cs__stack { display: flex; flex-direction: column; align-items: center; gap: 4px; min-height: 7rem; justify-content: flex-end; margin-bottom: var(--space-5); }
+.cs__tier { display: block; height: 1.6rem; background: var(--accent-on-dark); border-radius: var(--radius-sm); opacity: 0; transform: translateY(-14px) scale(.9); transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease); box-shadow: inset 0 -5px 0 rgba(36, 22, 15, .22); }
+.cs__tier.is-on { opacity: 1; transform: none; }
+.cs__big { margin: 0; display: flex; align-items: baseline; justify-content: center; gap: var(--space-3); }
+.cs__num { font-family: var(--font-display); font-size: var(--fs-h1); letter-spacing: var(--ls-display); line-height: var(--lh-tight); background: var(--grad-text-dark); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+.cs__big-label { color: var(--ink-on-dark-muted); }
+.cs__name { font-family: var(--font-display); font-size: var(--fs-h3); margin: var(--space-3) 0 var(--space-2); }
+.cs__note { color: var(--ink-on-dark-muted); margin: 0; line-height: var(--lh-body); }
+.cs__fine { color: var(--ink-muted); font-size: var(--fs-xs); margin: var(--space-5) 0 0; }
+@media (prefers-reduced-motion: reduce) { .cs__tier { transition: none; transform: none; } }
