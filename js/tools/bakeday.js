@@ -21,20 +21,21 @@
   ];
 
   var css = '' +
-    '.fresh-today{display:grid;gap:var(--space-5);}' +
+    '.fresh-today{display:grid;gap:var(--space-5);--ft-ink:var(--ink);--ft-muted:var(--ink-muted);--ft-line:var(--line);--ft-accent:var(--accent);--ft-on-accent:var(--on-accent);color:var(--ft-ink);}' +
+    '.band--dark .fresh-today{--ft-ink:var(--ink-on-dark);--ft-muted:var(--ink-on-dark-muted);--ft-line:var(--line-on-dark);--ft-accent:var(--accent-on-dark);--ft-on-accent:var(--bg-dark);}' +
     '.fresh-today__tabs{display:flex;flex-wrap:wrap;gap:var(--space-2);}' +
     '.fresh-today__tab{font:inherit;font-size:var(--fs-sm);padding:.45rem .9rem;border-radius:999px;cursor:pointer;' +
-    'border:1px solid var(--line-on-dark);background:transparent;color:var(--ink-on-dark);' +
+    'border:1px solid var(--ft-line);background:transparent;color:var(--ft-ink);' +
     'transition:transform .4s cubic-bezier(.2,.7,.2,1),background .3s;}' +
     '.fresh-today__tab:hover{transform:translateY(-2px);}' +
-    '.fresh-today__tab[aria-pressed="true"]{background:var(--accent-on-dark);color:var(--bg-dark);border-color:transparent;}' +
+    '.fresh-today__tab[aria-pressed="true"]{background:var(--ft-accent);color:var(--ft-on-accent);border-color:transparent;}' +
     '.fresh-today__tab:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}' +
     '.fresh-today__name{font-family:var(--font-display);font-size:var(--fs-h3);letter-spacing:-.02em;margin:0;}' +
-    '.fresh-today__note{margin:0;color:var(--ink-on-dark-muted);max-width:60ch;}' +
+    '.fresh-today__note{margin:0;color:var(--ft-muted);max-width:60ch;}' +
     '.fresh-today__list{list-style:none;margin:0;padding:0;display:grid;gap:var(--space-2);}' +
-    '.fresh-today__list li{display:flex;gap:var(--space-4);padding:var(--space-3) 0;border-top:1px solid var(--line-on-dark);}' +
-    '.fresh-today__list time{min-width:3.5rem;font-variant-numeric:tabular-nums;color:var(--accent-on-dark);font-weight:600;}' +
-    '.fresh-today__small{font-size:var(--fs-xs);color:var(--ink-on-dark-muted);margin:0;}' +
+    '.fresh-today__list li{display:flex;gap:var(--space-4);padding:var(--space-3) 0;border-top:1px solid var(--ft-line);}' +
+    '.fresh-today__list time{min-width:3.5rem;font-variant-numeric:tabular-nums;color:var(--ft-accent);font-weight:600;}' +
+    '.fresh-today__small{font-size:var(--fs-xs);color:var(--ft-muted);margin:0;}' +
     '.fresh-today__body{animation:ft-in .5s cubic-bezier(.2,.7,.2,1);}' +
     '@keyframes ft-in{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}' +
     '@media (prefers-reduced-motion:reduce){.fresh-today__body{animation:none;}.fresh-today__tab{transition:none;}}';
