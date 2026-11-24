@@ -1,0 +1,17 @@
+/* Shared site rules (Lead Developer). Tokens come from tokens.css; layout from layout.css. */
+@view-transition { navigation: auto; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--font-body, system-ui, -apple-system, "Segoe UI", sans-serif); background: var(--bg, #fbf6ee); color: var(--ink, #2b1d14); line-height: 1.6; }
+main { display: block; }
+img, svg { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent, #b4541f); outline-offset: 3px; }
+.band { padding-block: clamp(5rem, 12vw, 10rem); padding-inline: clamp(1rem, 5vw, 4rem); }
+.band--dark { background: var(--bg-dark, #2b1d14); color: var(--ink-on-dark, #fbf6ee); }
+.wrap { max-width: 72rem; margin-inline: auto; }
+.prose { max-width: 65ch; }
+.btn { display: inline-block; padding: .85em 1.6em; border-radius: 999px; background: var(--accent, #b4541f); color: #fff; text-decoration: none; border: 0; font: inherit; font-weight: 600; cursor: pointer; transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgb(0 0 0 / .18); }
+.card { background: var(--card, #fff); border-radius: 1.25rem; padding: 1.5rem; box-shadow: 0 6px 24px rgb(43 29 20 / .08); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
