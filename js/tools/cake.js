@@ -11,7 +11,7 @@
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function iso(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
-  var min = new Date(); min.setDate(min.getDate() + 3);
+  var min = new Date(); min.setDate(min.getDate() + 2);
   dateEl.min = iso(min);
   dateEl.value = iso(min);
 
@@ -51,7 +51,7 @@
     bad('msg', msg.length > 40 ? 'Please keep the message to 40 characters.' : '', form.elements.message);
     var d = dateEl.value, m = '';
     if (!d) m = 'Please choose a pickup date.';
-    else if (d < dateEl.min) m = 'We need at least 3 days’ notice. The earliest date is ' + pretty(dateEl.min) + '.';
+    else if (d < dateEl.min) m = 'We need at least 2 days’ notice. The earliest date is ' + pretty(dateEl.min) + '.';
     bad('date', m, dateEl);
     bad('allergy', form.elements.allergies.value.length > 200 ? 'Please keep this under 200 characters.' : '', form.elements.allergies);
     if (first) first.focus();
