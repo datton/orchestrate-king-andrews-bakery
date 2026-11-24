@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head>
+<title>Andrew's Bakery</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Andrew's Bakery: a neighbourhood bakery. Bread, pastries and custom cakes, baked before you wake.">
+<style>@view-transition { navigation: auto; }</style>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/site.css">
+<script src="js/nav.js" defer></script>
+<script src="js/motion.js" defer></script>
+<script src="js/app.js" defer></script>
+</head><body>
+<main id="main">
+
+<section class="band home-hero" style="min-height:100svh;display:flex;align-items:center">
+  <div class="wrap">
+    <p data-reveal class="eyebrow">Andrew's Bakery · Your neighbourhood bakery</p>
+    <h1 data-words style="font-size:clamp(3rem,10vw,7rem);line-height:1;letter-spacing:-.03em">Baked before you wake.</h1>
+    <p data-reveal class="lead" style="max-width:40rem;font-size:clamp(1.1rem,2vw,1.4rem)">Warm loaves, flaky pastries and cakes made for your table. Everything is made by hand, in small batches, the same morning you eat it.</p>
+    <p data-reveal>
+      <a class="btn" href="pages/menu.html">See the menu</a>
+      <a class="btn" href="pages/cake.html">Order a custom cake</a>
+    </p>
+  </div>
+</section>
+
+<section class="band band--dark" aria-label="What we bake">
+  <div data-marquee style="font-size:clamp(3rem,9vw,8rem);font-weight:800;letter-spacing:-.03em;white-space:nowrap">
+    Sourdough · Croissants · Cinnamon buns · Celebration cakes · Cookies · Fresh every morning ·
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <p data-fill style="font-size:clamp(1.8rem,4.5vw,3.5rem);line-height:1.2;letter-spacing:-.02em;max-width:60rem">Good bread takes time, so we give it time. Slow dough, real butter and an oven that's already hot when the neighbourhood wakes up.</p>
+  </div>
+</section>
+
+<section class="band band--dark" data-sticky-steps aria-labelledby="steps-h">
+  <div class="wrap">
+    <h2 id="steps-h" data-reveal>From dough to your door</h2>
+    <div data-step style="font-size:clamp(1.5rem,3vw,2.5rem)"><strong>Mix.</strong> Flour, water, salt and patience, started the evening before.</div>
+    <div data-step style="font-size:clamp(1.5rem,3vw,2.5rem)"><strong>Rest.</strong> The dough rises slowly overnight, and the flavour builds.</div>
+    <div data-step style="font-size:clamp(1.5rem,3vw,2.5rem)"><strong>Bake.</strong> Into a hot oven in the early hours, until the crust sings.</div>
+    <div data-step style="font-size:clamp(1.5rem,3vw,2.5rem)"><strong>Share.</strong> On the counter, still warm, ready for your morning.</div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="sig-h">
+  <div class="wrap">
+    <h2 id="sig-h" data-reveal>Signature bakes</h2>
+    <div class="grid" style="display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))">
+      <article class="card" data-reveal><h3>Country sourdough</h3><p>A deep, crackling crust and a soft, tangy crumb.</p></article>
+      <article class="card" data-reveal><h3>Butter croissant</h3><p>Dozens of layers, golden and shatteringly light.</p></article>
+      <article class="card" data-reveal><h3>Cinnamon bun</h3><p>Soft, sticky and spiced, best eaten warm.</p></article>
+      <article class="card" data-reveal><h3>Celebration cake</h3><p>Made to order for birthdays, weddings and every in-between.</p></article>
+    </div>
+    <p data-reveal><a class="btn" href="pages/menu.html">Full menu</a></p>
+  </div>
+</section>
+
+<section class="band band--dark" aria-labelledby="today-h">
+  <div class="wrap">
+    <h2 id="today-h" data-reveal>Today at the counter</h2>
+    <div class="card" id="todays-bake" data-reveal aria-live="polite">
+      <p class="eyebrow" id="tb-day">Today</p>
+      <h3 id="tb-name">Country sourdough</h3>
+      <p id="tb-note">Ask at the counter what's fresh from the oven.</p>
+      <button class="btn" type="button" id="tb-next">Show another bake</button>
+      <p><small>A sample of what we bake: the day's counter may differ.</small></p>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="cta-h">
+  <div class="wrap">
+    <h2 id="cta-h" data-reveal>Celebrating something?</h2>
+    <p data-reveal class="lead" style="max-width:40rem">Tell us the size, the flavour and the day, and we'll bake you a cake worth the occasion.</p>
+    <p data-reveal><a class="btn" href="pages/cake.html">Start a cake enquiry</a> <a class="btn" href="pages/visit.html">Visit us</a></p>
+    <p data-reveal>Our story is on the <a href="pages/story.html">story page</a>, and answers to common questions are in the <a href="pages/faq.html">FAQ</a>.</p>
+  </div>
+</section>
+
+</main></body></html>
