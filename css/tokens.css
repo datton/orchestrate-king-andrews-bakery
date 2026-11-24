@@ -1,0 +1,95 @@
+/* Andrew's Bakery: design tokens (Designer).
+   Palette: warm flour-cream paper, deep espresso-brown ink, ONE accent: baked-crust caramel.
+   Contrast (WCAG AA): --ink on --bg 14:1; --ink-muted on --bg 6.4:1; --accent on --bg 5.3:1;
+   --ink-on-dark on --bg-dark 13:1; --accent-on-dark on --bg-dark 8:1; --on-accent on --accent 6:1.
+   Type: system serif display (warm, bakery-like) over system sans body; tight tracking on big type.
+   Motion: one easing, 400-900 ms, 60 ms stagger; only transform/opacity/filter animate. */
+:root {
+  /* palette: light */
+  --bg: #fbf5ec;
+  --bg-soft: #f4eadb;
+  --card: #fffaf2;
+  --ink: #2b1d14;
+  --ink-muted: #6b5648;
+  --line: rgba(43, 29, 20, .14);
+  --accent: #a8501c;
+  --accent-hover: #8a3f13;
+  --accent-soft: #f1d9c0;
+  --on-accent: #fffaf2;
+  --focus: #1d5fd1;
+
+  /* palette: dark bands */
+  --bg-dark: #24160f;
+  --bg-dark-soft: #33211a;
+  --ink-on-dark: #f7ecdc;
+  --ink-on-dark-muted: #c9b5a0;
+  --accent-on-dark: #eba762;
+  --line-on-dark: rgba(247, 236, 220, .16);
+
+  /* gradients and glow (CSS-only accents) */
+  --grad-text: linear-gradient(100deg, #a8501c 0%, #d9822b 45%, #8a3f13 100%);
+  --grad-text-dark: linear-gradient(100deg, #eba762 0%, #ffd9a0 50%, #eba762 100%);
+  --glow: radial-gradient(60% 60% at 50% 40%, rgba(217, 130, 43, .28), transparent 70%);
+  --glow-dark: radial-gradient(60% 60% at 70% 30%, rgba(235, 167, 98, .22), transparent 70%);
+
+  /* type families (system only) */
+  --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* type scale */
+  --fs-xs: .8125rem;
+  --fs-sm: .9375rem;
+  --fs-base: clamp(1rem, .96rem + .2vw, 1.125rem);
+  --fs-lead: clamp(1.15rem, 1rem + .8vw, 1.6rem);
+  --fs-h3: clamp(1.35rem, 1.1rem + 1.1vw, 2rem);
+  --fs-h2: clamp(2.2rem, 1.2rem + 4.5vw, 5rem);
+  --fs-h1: clamp(3rem, 1.2rem + 8vw, 7rem);
+  --fs-giant: clamp(5rem, 2rem + 18vw, 16rem);   /* marquee, scrollytelling word */
+  --fs-step: clamp(1.5rem, 1.1rem + 1.8vw, 2.5rem); /* sticky step text */
+  --lh-tight: 1.02;
+  --lh-snug: 1.2;
+  --lh-body: 1.65;
+  --ls-display: -.035em;
+  --ls-heading: -.02em;
+  --ls-caps: .14em;
+  --measure: 65ch;
+
+  /* spacing */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2.5rem;
+  --space-7: 4rem;
+  --space-8: 6rem;
+  --section-space: clamp(5rem, 12vw, 10rem);
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --max-w: 1240px;
+
+  /* shape and shadow */
+  --radius-sm: 10px;
+  --radius: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(43, 29, 20, .06), 0 2px 8px rgba(43, 29, 20, .06);
+  --shadow: 0 8px 30px rgba(43, 29, 20, .10), 0 2px 6px rgba(43, 29, 20, .06);
+  --shadow-lg: 0 24px 70px rgba(43, 29, 20, .18);
+
+  /* motion */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-fast: 400ms;
+  --dur: 650ms;
+  --dur-slow: 900ms;
+  --stagger: 60ms;
+  --marquee-speed: 60s;
+  --reveal-distance: 28px;
+  --reveal-blur: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur: 0ms; --dur-slow: 0ms; --stagger: 0ms; --reveal-distance: 0px; --reveal-blur: 0px; }
+}
+
+@view-transition { navigation: auto; }
