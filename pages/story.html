@@ -1,0 +1,108 @@
+<!doctype html><html lang="en"><head>
+<title>Our story · Andrew's Bakery</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+  @view-transition { navigation: auto; }
+  .story-hero { min-height: 100svh; display: grid; align-content: center; background: var(--bg); position: relative; overflow: hidden; }
+  .story-hero::before { content: ""; position: absolute; inset: 0; background: var(--glow); pointer-events: none; }
+  .story-hero > * { position: relative; max-width: 72rem; }
+  .story-eyebrow { font-family: var(--font-body); font-size: var(--fs-sm); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin: 0 0 1.5rem; }
+  .story-hero h1, .story-statement, .story-steps h2, .story-numbers h2, .story-close h2 { font-family: var(--font-display); letter-spacing: -.03em; line-height: 1.02; margin: 0; }
+  .story-hero h1 { font-size: clamp(3rem, 9vw, 7rem); }
+  .story-hero h1 em { font-style: italic; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .story-lead { font-size: var(--fs-lead); color: var(--ink-muted); max-width: 40rem; margin: 2rem 0 0; line-height: 1.5; }
+  .story-statement { font-size: clamp(2rem, 5.5vw, 4.5rem); max-width: 22ch; }
+  .story-statement [data-fill] { margin: 0; }
+  .story-steps { background: var(--bg-dark); color: var(--ink-on-dark); }
+  .story-steps h2 { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 3rem; }
+  .story-steps .kicker { color: var(--accent-on-dark); font-size: var(--fs-sm); letter-spacing: .18em; text-transform: uppercase; margin: 0 0 1rem; }
+  .steps-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+  .steps-word { font-family: var(--font-display); font-size: clamp(4rem, 14vw, 11rem); line-height: .95; letter-spacing: -.04em; background: var(--grad-text-dark); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0; }
+  .step { padding-block: clamp(1.5rem, 5vw, 4rem); border-top: 1px solid var(--line-on-dark); }
+  .step h3 { font-family: var(--font-display); font-size: clamp(1.5rem, 3.4vw, 2.5rem); margin: 0 0 .6rem; color: var(--accent-on-dark); letter-spacing: -.02em; }
+  .step p { font-size: clamp(1.15rem, 2.2vw, 1.6rem); line-height: 1.45; color: var(--ink-on-dark); margin: 0; max-width: 34rem; }
+  @media (min-width: 60rem) {
+    .steps-grid { grid-template-columns: 1fr 1.1fr; align-items: start; gap: 4rem; }
+    .steps-word-wrap { position: sticky; top: 20vh; }
+  }
+  .story-numbers { background: var(--bg-soft); }
+  .story-numbers h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 3rem; max-width: 20ch; }
+  .numbers { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin: 0; padding: 0; list-style: none; }
+  .numbers li { background: var(--card); border: 1px solid var(--line); border-radius: 1.25rem; padding: 2rem 1.5rem; box-shadow: 0 10px 30px rgba(43, 29, 20, .06); }
+  .numbers strong { display: block; font-family: var(--font-display); font-size: clamp(3rem, 7vw, 5rem); line-height: 1; letter-spacing: -.03em; color: var(--accent); }
+  .numbers span { display: block; margin-top: .6rem; color: var(--ink-muted); font-size: var(--fs-base); }
+  .story-close { background: var(--bg); }
+  .story-close h2 { font-size: clamp(2.2rem, 5vw, 4rem); max-width: 18ch; }
+  .story-close p { font-size: var(--fs-lead); color: var(--ink-muted); max-width: 40rem; line-height: 1.5; margin: 1.5rem 0 2rem; }
+  .story-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .story-links a { display: inline-block; padding: .9rem 1.6rem; border-radius: 999px; font-weight: 600; text-decoration: none; background: var(--accent); color: var(--on-accent); transition: transform .3s cubic-bezier(.2,.7,.2,1), background .3s; }
+  .story-links a:hover, .story-links a:focus-visible { transform: translateY(-3px); background: var(--accent-hover); }
+  .story-links a.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+  .story-links a.ghost:hover, .story-links a.ghost:focus-visible { background: var(--accent-soft); }
+</style>
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/app.js" defer></script>
+</head><body>
+<main id="main">
+
+<section class="band story-hero">
+  <p class="story-eyebrow" data-reveal>Our story</p>
+  <h1 data-words>The day starts before the street wakes up.</h1>
+  <p class="story-lead" data-reveal>Andrew's Bakery is a neighbourhood bakery. We bake slowly, early, and for the people who live close enough to smell it.</p>
+</section>
+
+<section class="band" aria-labelledby="statement-h">
+  <h2 id="statement-h" class="story-eyebrow" data-reveal>What we believe</h2>
+  <div class="story-statement">
+    <p data-fill>Good bread is not hurried. It is made of flour, water, salt and time, and the time is the part you cannot fake. So we give it all the time it asks for.</p>
+  </div>
+</section>
+
+<section class="band story-steps" aria-labelledby="steps-h">
+  <p class="kicker" data-reveal>From dough to shelf</p>
+  <h2 id="steps-h" data-reveal>One loaf, three quiet stages.</h2>
+  <div class="steps-grid" data-sticky-steps>
+    <div class="steps-word-wrap">
+      <p class="steps-word" data-step-word aria-hidden="true">Dough</p>
+    </div>
+    <div class="steps-list">
+      <div class="step" data-step="Dough">
+        <h3>1. Dough</h3>
+        <p>Mixed in the small hours, then left to rise slowly. A long, patient rest is what gives the crumb its flavour.</p>
+      </div>
+      <div class="step" data-step="Bake">
+        <h3>2. Bake</h3>
+        <p>The ovens are warm before dawn. We bake in small batches, so each tray comes out when it is ready, not when the clock says.</p>
+      </div>
+      <div class="step" data-step="Shelf">
+        <h3>3. Shelf</h3>
+        <p>Still warm when it reaches the counter. Whatever the morning holds, the shelves are filled with the day's bakes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band story-numbers" aria-labelledby="numbers-h">
+  <h2 id="numbers-h" data-reveal>A bakery in small numbers.</h2>
+  <ul class="numbers">
+    <li data-reveal><strong data-count="1">1</strong><span>oven lit before the street wakes up</span></li>
+    <li data-reveal><strong data-count="3">3</strong><span>stages from dough to bake to shelf</span></li>
+    <li data-reveal><strong data-count="4">4</strong><span>ingredients in our everyday loaf: flour, water, salt, time</span></li>
+  </ul>
+</section>
+
+<section class="band story-close" aria-labelledby="close-h">
+  <h2 id="close-h" data-words>Come in, the oven is warm.</h2>
+  <p data-reveal>We use local flour wherever we can, and we would rather make less and make it well. Ask at the counter and we will happily tell you what came out of the oven this morning.</p>
+  <div class="story-links" data-reveal>
+    <a href="menu.html">See the menu</a>
+    <a class="ghost" href="visit.html">Plan a visit</a>
+  </div>
+</section>
+
+</main></body></html>
