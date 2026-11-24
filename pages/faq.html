@@ -1,0 +1,134 @@
+<!doctype html><html lang="en"><head>
+<title>Good to know · Andrew's Bakery</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ordering ahead, allergens, storage and reheating, and dietary questions for Andrew's Bakery.">
+<style>@view-transition { navigation: auto; }</style>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.faq-wrap{max-width:62rem;margin-inline:auto}
+.faq-kicker{font-size:var(--fs-sm);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--accent)}
+.faq-h1{font-family:var(--font-display);font-size:var(--fs-h1);line-height:var(--lh-tight);letter-spacing:var(--ls-display);margin:.3em 0 .4em}
+.faq-h2{font-family:var(--font-display);font-size:var(--fs-h2);line-height:var(--lh-tight);letter-spacing:var(--ls-display);margin:0 0 .5em}
+.faq-lead{font-size:var(--fs-lead);max-width:42ch;color:var(--ink-muted);line-height:var(--lh-snug)}
+.faq-hero{min-height:70svh;display:flex;align-items:center;background:var(--bg-soft)}
+.faq-hero .grad{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.faq-list{margin:2rem 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item h3{margin:0;font:inherit}
+.faq-q{all:unset;box-sizing:border-box;display:flex;width:100%;justify-content:space-between;align-items:center;gap:1rem;padding:1.4rem .25rem;cursor:pointer;font-family:var(--font-display);font-size:var(--fs-h3);line-height:var(--lh-snug);letter-spacing:var(--ls-heading)}
+.faq-q:hover{color:var(--accent)}
+.faq-q:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:.5rem}
+.faq-q::after{content:"+";flex:none;font-size:1.8em;line-height:1;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.faq-q[aria-expanded="true"]::after{transform:rotate(45deg)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1)}
+.faq-a>div{overflow:hidden}
+.faq-q[aria-expanded="true"]+.faq-a,.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a p{margin:0 0 1.4rem;max-width:62ch;line-height:var(--lh-body);color:var(--ink-muted);padding-inline:.25rem}
+.faq-a a{color:var(--accent)}
+.no-js .faq-a{grid-template-rows:1fr}
+.faq-nums{display:flex;flex-wrap:wrap;gap:2.5rem 4rem;margin-top:2.5rem}
+.faq-nums strong{display:block;font-family:var(--font-display);font-size:var(--fs-h2);line-height:1;color:var(--accent-on-dark);letter-spacing:var(--ls-display)}
+.faq-nums span{color:var(--ink-on-dark-muted)}
+.band--dark .faq-h2{color:var(--ink-on-dark)}
+.band--dark p{color:var(--ink-on-dark-muted);max-width:62ch;line-height:var(--lh-body)}
+.al-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.75rem;margin:2rem 0;padding:0;border:0}
+.al-grid legend{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.al-opt{position:relative}
+.al-opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.al-opt label{display:flex;align-items:center;gap:.7rem;padding:.9rem 1rem;border-radius:1rem;background:var(--card);border:1.5px solid var(--line);transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,background .3s;min-height:3.25rem}
+.al-opt label::before{content:"";flex:none;width:1.25rem;height:1.25rem;border-radius:.35rem;border:2px solid var(--ink-muted)}
+.al-opt input:checked+label{border-color:var(--accent);background:var(--accent-soft)}
+.al-opt input:checked+label::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--accent-soft)}
+.al-opt input:hover+label{transform:translateY(-2px)}
+.al-opt input:focus-visible+label{outline:3px solid var(--focus);outline-offset:2px}
+.al-out{padding:1.5rem;border-radius:1.25rem;background:var(--card);box-shadow:0 6px 24px rgb(43 29 20 / .08)}
+.al-out h3{margin:0 0 .5rem;font-family:var(--font-display);font-size:var(--fs-h3)}
+.al-out p{margin:.4rem 0;line-height:var(--lh-body);max-width:62ch}
+.al-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
+.al-actions .btn.ghost{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+.faq-note{font-size:var(--fs-sm);color:var(--ink-muted);margin-top:1rem}
+@media (prefers-reduced-motion:reduce){.faq-a,.faq-q::after,.al-opt label{transition:none}}
+</style>
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/app.js" defer></script>
+<script src="../js/tools/faq.js" defer></script>
+</head><body>
+<main id="main">
+
+<section class="band faq-hero">
+  <div class="faq-wrap">
+    <p class="faq-kicker" data-reveal>Good to know</p>
+    <h1 class="faq-h1" data-words>Questions, <span class="grad">answered before you ask.</span></h1>
+    <p class="faq-lead" data-reveal>Ordering ahead, allergens, keeping your bakes fresh and eating the way you do.</p>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="faq-title">
+  <div class="faq-wrap">
+    <h2 class="faq-h2" id="faq-title" data-words>The short answers</h2>
+    <ul class="faq-list" data-faq>
+      <li class="faq-item" data-reveal>
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="a1" id="q1">How do I order ahead?</button></h3>
+        <div class="faq-a" id="a1" role="region" aria-labelledby="q1"><div><p>For celebration cakes and larger orders, use the <a href="cake.html">cake enquiry</a>: choose a size, flavour and message, and pick a pickup date with at least two days' notice. For everyday bakes, ask at the counter.</p></div></div>
+      </li>
+      <li class="faq-item" data-reveal>
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="a2" id="q2">How much notice does a custom cake need?</button></h3>
+        <div class="faq-a" id="a2" role="region" aria-labelledby="q2"><div><p>Two days is the minimum, and more is always kinder to the baker. The enquiry form will not offer dates sooner than that. Busy weekends fill first, so book early.</p></div></div>
+      </li>
+      <li class="faq-item" data-reveal>
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="a3" id="q3">What about allergens?</button></h3>
+        <div class="faq-a" id="a3" role="region" aria-labelledby="q3"><div><p>A bakery works with flour, milk, eggs, nuts and more, so please tell us about any allergy before you order and ask at the counter about a specific bake. Use the quick-check below to list what you avoid and show it when you order.</p></div></div>
+      </li>
+      <li class="faq-item" data-reveal>
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="a4" id="q4">How should I store fresh bread and pastries?</button></h3>
+        <div class="faq-a" id="a4" role="region" aria-labelledby="q4"><div><p>Keep bread in a paper bag or a bread bin at room temperature, not in the fridge, which dries it out. Eat pastries the day you buy them for the best texture. Anything with cream or custard belongs in the fridge.</p></div></div>
+      </li>
+      <li class="faq-item" data-reveal>
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="a5" id="q5">How do I bring a bake back to life?</button></h3>
+        <div class="faq-a" id="a5" role="region" aria-labelledby="q5"><div><p>A few minutes in a warm oven (around 160&nbsp;°C) refreshes bread and pastries. Splash a little water on a crusty loaf first. A microwave makes them soft and chewy, so we avoid it.</p></div></div>
+      </li>
+      <li class="faq-item" data-reveal>
+        <h3><button class="faq-q" type="button" aria-expanded="false" aria-controls="a6" id="q6">Do you have vegetarian, vegan or other dietary options?</button></h3>
+        <div class="faq-a" id="a6" role="region" aria-labelledby="q6"><div><p>Ask at the counter what is on the shelves today, as the selection changes. For a custom cake, mention your dietary needs in the enquiry notes and we will talk it through with you.</p></div></div>
+      </li>
+    </ul>
+    <p class="faq-note">Press Enter or Space on a question to open it. <button class="btn ghost" type="button" data-faq-all style="margin-left:.5rem;padding:.4em 1.1em;background:transparent;color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)">Open all</button></p>
+  </div>
+</section>
+
+<section class="band band--dark" aria-label="Fresh every day">
+  <div class="faq-wrap">
+    <h2 class="faq-h2" data-words>A little planning goes a long way</h2>
+    <p data-reveal>Three habits that make every order smoother.</p>
+    <div class="faq-nums">
+      <div data-reveal><strong data-count="2">2</strong><span>days' notice for a custom cake</span></div>
+      <div data-reveal><strong data-count="6">6</strong><span>questions answered above</span></div>
+      <div data-reveal><strong data-count="14">14</strong><span>common allergens in the quick-check</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="al-title">
+  <div class="faq-wrap">
+    <h2 class="faq-h2" id="al-title" data-words>Allergen quick-check</h2>
+    <p class="faq-lead" data-reveal>Tick what you need to avoid. Show the note at the counter and we will go through the shelves with you.</p>
+    <form id="al-form" novalidate>
+      <fieldset class="al-grid" id="al-grid"><legend>Allergens I need to avoid</legend></fieldset>
+    </form>
+    <div class="al-out" id="al-out" aria-live="polite">
+      <h3>Your note</h3>
+      <p id="al-text">Nothing ticked yet.</p>
+      <div class="al-actions">
+        <button class="btn" type="button" id="al-copy">Copy note</button>
+        <button class="btn ghost" type="button" id="al-clear" style="background:transparent;color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)">Clear</button>
+      </div>
+      <p class="faq-note" id="al-status" role="status">Your choices stay in this browser only. Nothing is sent. This note does not tell you which bakes are safe; always check with us at the counter.</p>
+    </div>
+  </div>
+</section>
+
+</main></body></html>
