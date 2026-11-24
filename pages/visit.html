@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><head>
+<title>Hours and visit · Andrew's Bakery</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.visit-hero { min-height: 70svh; display: flex; align-items: center; background: var(--bg-soft); }
+.visit-hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 9vw, 7rem); line-height: var(--lh-tight, 1); letter-spacing: -.03em; margin: 0 0 1.5rem; }
+.visit-hero p { font-size: var(--fs-lead); max-width: 52ch; color: var(--ink-muted); margin: 0; }
+.kicker { text-transform: uppercase; letter-spacing: .14em; font-size: var(--fs-sm); color: var(--accent); font-weight: 700; margin: 0 0 1rem; }
+.band--dark .kicker { color: var(--accent-on-dark); }
+.visit-grid { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
+.visit-grid h2 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 1rem; }
+.hours { width: 100%; border-collapse: collapse; font-size: 1.15rem; }
+.hours th, .hours td { text-align: left; padding: .9rem .25rem; border-bottom: 1px solid var(--line); }
+.hours td { text-align: right; font-variant-numeric: tabular-nums; }
+.hours tr.is-today th, .hours tr.is-today td { color: var(--accent); font-weight: 700; }
+.hours tr.is-today th::after { content: " · today"; font-weight: 500; font-size: var(--fs-sm); }
+.sample { font-size: var(--fs-sm); color: var(--ink-muted); margin-top: 1rem; }
+.status { display: inline-block; padding: .4em 1em; border-radius: 999px; background: var(--accent-soft); color: var(--ink); font-weight: 600; margin-bottom: 1.25rem; }
+.stats { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); margin-top: 3rem; }
+.stats strong { display: block; font-family: var(--font-display); font-size: clamp(3rem, 7vw, 5rem); line-height: 1; letter-spacing: -.03em; color: var(--accent-on-dark); }
+.stats span { color: var(--ink-on-dark-muted); }
+.contact-card h3 { margin-top: 0; font-size: var(--fs-h3); }
+.neighbour { font-size: clamp(1.5rem, 3.4vw, 2.5rem); line-height: 1.3; max-width: 30ch; letter-spacing: -.01em; }
+</style>
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script>window.AB_HOURS={sample:true,days:{0:[8,0,14,0],1:null,2:[7,0,17,0],3:[7,0,17,0],4:[7,0,17,0],5:[7,0,18,0],6:[7,30,16,0]}};</script>
+<script src="../js/app.js" defer></script>
+<script src="../js/tools/openNow.js" defer></script>
+</head><body>
+<main id="main">
+
+<section class="band visit-hero">
+  <div class="wrap">
+    <p class="kicker" data-reveal>Hours and visit</p>
+    <h1 data-words>Come in while the ovens are warm.</h1>
+    <p data-reveal>Pull up a stool, pick a loaf, say hello. Here is when the doors are open.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap visit-grid">
+    <div data-reveal>
+      <p class="kicker">Opening hours</p>
+      <h2>Fresh from early morning.</h2>
+      <div class="status" data-open-now>Hours below</div>
+      <p class="prose">Most bakes are out by opening time and the shelves thin out through the afternoon, so the earlier you come, the wider the choice.</p>
+    </div>
+    <div data-reveal>
+      <table class="hours" id="hours">
+        <caption class="sr-only">Weekly opening hours (sample)</caption>
+        <thead class="sr-only"><tr><th scope="col">Day</th><th scope="col">Hours</th></tr></thead>
+        <tbody>
+          <tr data-day="1"><th scope="row">Monday</th><td>Closed</td></tr>
+          <tr data-day="2"><th scope="row">Tuesday</th><td>7:00 – 17:00</td></tr>
+          <tr data-day="3"><th scope="row">Wednesday</th><td>7:00 – 17:00</td></tr>
+          <tr data-day="4"><th scope="row">Thursday</th><td>7:00 – 17:00</td></tr>
+          <tr data-day="5"><th scope="row">Friday</th><td>7:00 – 18:00</td></tr>
+          <tr data-day="6"><th scope="row">Saturday</th><td>7:30 – 16:00</td></tr>
+          <tr data-day="0"><th scope="row">Sunday</th><td>8:00 – 14:00</td></tr>
+        </tbody>
+      </table>
+      <p class="sample">Sample hours, shown to illustrate the layout. Ask at the counter to confirm.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--dark">
+  <div class="wrap">
+    <p class="kicker" data-reveal>A typical day</p>
+    <h2 data-words style="font-family:var(--font-display);font-size:clamp(2.2rem,6vw,4.5rem);letter-spacing:-.02em;line-height:1.05;margin:0">Early starts, slow mornings, empty trays by closing.</h2>
+    <div class="stats">
+      <div data-reveal><strong data-count="4">4</strong><span>a.m. when the first dough is mixed</span></div>
+      <div data-reveal><strong data-count="7">7</strong><span>doors open on most days</span></div>
+      <div data-reveal><strong data-count="6">6</strong><span>days a week we bake</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap visit-grid">
+    <div data-reveal>
+      <p class="kicker">Getting in touch</p>
+      <h2>Ask at the counter.</h2>
+      <div class="card contact-card">
+        <h3>Questions, orders, cake plans?</h3>
+        <p>The quickest way is to stop by and talk to us at the counter. For a custom cake, the enquiry form tells us what you have in mind.</p>
+        <p><a class="btn" href="cake.html">Start a cake enquiry</a></p>
+      </div>
+    </div>
+    <div data-reveal>
+      <p class="kicker">The neighbourhood</p>
+      <p class="neighbour">A short walk from the park, the school gates and the Saturday market: easy to find, easy to pop into.</p>
+      <p class="prose" style="color:var(--ink-muted)">Many of our regulars drop by on the way to somewhere else and stay for a coffee. Bring a bag, a friend, or both.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<script>
+(function () {
+  try {
+    var row = document.querySelector('#hours tr[data-day="' + new Date().getDay() + '"]');
+    if (row) row.classList.add('is-today');
+  } catch (e) {}
+})();
+</script>
+</body></html>
