@@ -1,0 +1,148 @@
+<!doctype html><html lang="en"><head>
+<title>Custom cakes · Andrew's Bakery</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+.cake-hero{min-height:70svh;display:flex;align-items:flex-end;background:var(--bg-soft);position:relative;overflow:hidden}
+.cake-hero::before{content:"";position:absolute;inset:0;background:var(--glow);pointer-events:none}
+.cake-hero .wrap{position:relative;width:100%}
+.cake-hero h1{font-family:var(--font-display);font-size:var(--fs-h1);line-height:var(--lh-tight);letter-spacing:var(--ls-display);margin:0 0 var(--space-5);max-width:14ch}
+.cake-hero p{font-size:var(--fs-lead);max-width:var(--measure);color:var(--ink-muted);margin:0}
+.eyebrow{font-size:var(--fs-xs);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 var(--space-4)}
+.cake-h2{font-family:var(--font-display);font-size:var(--fs-h2);line-height:var(--lh-tight);letter-spacing:var(--ls-heading);margin:0 0 var(--space-6)}
+.cake-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:var(--space-5);margin-top:var(--space-6)}
+.cake-steps div{border-top:1px solid var(--line-on-dark);padding-top:var(--space-4)}
+.cake-steps b{display:block;font-family:var(--font-display);font-size:var(--fs-h3);color:var(--accent-on-dark)}
+.cake-steps p{margin:.4rem 0 0;color:var(--ink-on-dark-muted)}
+.cake-num{font-family:var(--font-display);font-size:var(--fs-h2);line-height:1;color:var(--accent-on-dark)}
+.cake-form{background:var(--card);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:clamp(1.25rem,4vw,3rem);display:grid;gap:var(--space-5);grid-template-columns:repeat(2,minmax(0,1fr))}
+.cake-form .full{grid-column:1/-1}
+.cake-form fieldset{border:0;padding:0;margin:0;min-width:0}
+.cake-form legend,.cake-form label{display:block;font-weight:600;margin-bottom:var(--space-2)}
+.cake-form .hint{font-weight:400;color:var(--ink-muted);font-size:var(--fs-sm)}
+.cake-form input[type=text],.cake-form input[type=date],.cake-form select,.cake-form textarea{width:100%;box-sizing:border-box;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:var(--radius-sm);padding:.75em .9em;min-height:2.75rem}
+.cake-form textarea{min-height:5.5rem;resize:vertical}
+.cake-form input:focus-visible,.cake-form select:focus-visible,.cake-form textarea:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.cake-form [aria-invalid=true]{border-color:#b3261e}
+.err{color:#b3261e;font-size:var(--fs-sm);margin:.35rem 0 0;min-height:0}
+.err:empty{display:none}
+.opts{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+.opts label{margin:0;font-weight:500;position:relative}
+.opts input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.opts span{display:inline-block;padding:.6em 1.1em;border:1.5px solid var(--line);border-radius:var(--radius-pill);background:var(--bg);transition:transform var(--dur-fast) var(--ease),background var(--dur-fast),border-color var(--dur-fast)}
+.opts label:hover span{transform:translateY(-2px)}
+.opts input:checked+span{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.opts input:focus-visible+span{outline:3px solid var(--focus);outline-offset:2px}
+.cake-actions{display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center}
+.cake-note{color:var(--ink-muted);font-size:var(--fs-sm);margin:0}
+.cake-form .btn{color:var(--on-accent)}
+.btn--ghost{background:transparent!important;color:var(--accent)!important;border:1.5px solid var(--accent)!important}
+.cake-done{background:var(--accent-soft);border-radius:var(--radius-lg);padding:clamp(1.5rem,4vw,3rem)}
+.cake-done h3{font-family:var(--font-display);font-size:var(--fs-h3);margin:0 0 var(--space-3)}
+.cake-done dl{display:grid;grid-template-columns:max-content 1fr;gap:.4rem 1.25rem;margin:var(--space-5) 0}
+.cake-done dt{font-weight:600}.cake-done dd{margin:0;overflow-wrap:anywhere}
+.cake-saved{margin-top:var(--space-7)}
+.cake-saved ul{list-style:none;padding:0;margin:var(--space-4) 0 0;display:grid;gap:var(--space-3)}
+.cake-saved li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--space-3);background:var(--card);border-radius:var(--radius-sm);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm)}
+.cake-saved button{background:none;border:0;color:var(--accent);font:inherit;text-decoration:underline;cursor:pointer;min-height:2.75rem;padding:0 .5rem}
+@media(max-width:40rem){.cake-form{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="../css/cakesize.css">
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/app.js" defer></script>
+<script src="../js/tools/cakesize.js" defer></script>
+<script src="../js/tools/cake.js" defer></script>
+</head><body>
+<main id="main">
+
+<section class="band cake-hero">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>Custom cakes</p>
+    <h1 data-words>A cake made for your day</h1>
+    <p data-reveal>Birthdays, weddings, a first job, a last day. Tell us what you have in mind and we will bake it by hand, the morning you collect it.</p>
+  </div>
+</section>
+
+<section class="band band--dark">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal style="color:var(--accent-on-dark)">How it works</p>
+    <h2 class="cake-h2" data-words>Three days, one cake</h2>
+    <div class="cake-steps">
+      <div data-reveal><span class="cake-num" data-count="1">1</span><b>You ask</b><p>Fill in the form below with size, flavour and a message.</p></div>
+      <div data-reveal><span class="cake-num" data-count="3">3</span><b>Days' notice</b><p>We need at least three days to bake and decorate properly.</p></div>
+      <div data-reveal><span class="cake-num" data-count="4">4</span><b>Sizes to choose</b><p>From a small cake for two to a tall one for a crowd.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--dark" id="size-guide">
+  <div class="wrap"><div data-cake-size></div></div>
+</section>
+
+<section class="band" id="enquiry">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>Cake enquiry</p>
+    <h2 class="cake-h2" data-words>Tell us about your cake</h2>
+
+    <form class="cake-form" id="cake-form" novalidate data-reveal>
+      <div class="full">
+        <label for="c-name">Your name</label>
+        <input type="text" id="c-name" name="name" autocomplete="name" required aria-describedby="e-name">
+        <p class="err" id="e-name" role="alert"></p>
+      </div>
+      <fieldset class="full">
+        <legend>Size</legend>
+        <div class="opts" role="radiogroup">
+          <label><input type="radio" name="size" value="Small, serves 6-8" checked><span>Small · serves 6-8</span></label>
+          <label><input type="radio" name="size" value="Medium, serves 12-16"><span>Medium · serves 12-16</span></label>
+          <label><input type="radio" name="size" value="Large, serves 20-25"><span>Large · serves 20-25</span></label>
+          <label><input type="radio" name="size" value="Two tiers, serves 30-40"><span>Two tiers · serves 30-40</span></label>
+        </div>
+      </fieldset>
+      <div>
+        <label for="c-flavour">Flavour</label>
+        <select id="c-flavour" name="flavour">
+          <option>Vanilla sponge</option><option>Chocolate</option><option>Lemon</option><option>Carrot and walnut</option><option>Red velvet</option><option>Fruit cake</option>
+        </select>
+      </div>
+      <div>
+        <label for="c-filling">Filling</label>
+        <select id="c-filling" name="filling">
+          <option>Buttercream</option><option>Raspberry jam</option><option>Chocolate ganache</option><option>Lemon curd</option><option>Cream cheese</option>
+        </select>
+      </div>
+      <div class="full">
+        <label for="c-msg">Message on the cake <span class="hint">(optional, up to 40 characters)</span></label>
+        <input type="text" id="c-msg" name="message" maxlength="40" aria-describedby="e-msg">
+        <p class="err" id="e-msg" role="alert"></p>
+      </div>
+      <div>
+        <label for="c-date">Pickup date <span class="hint">(at least 3 days from today)</span></label>
+        <input type="date" id="c-date" name="date" required aria-describedby="e-date">
+        <p class="err" id="e-date" role="alert"></p>
+      </div>
+      <div>
+        <label for="c-allergy">Allergies or dietary needs</label>
+        <input type="text" id="c-allergy" name="allergies" placeholder="e.g. nut-free" aria-describedby="e-allergy">
+        <p class="err" id="e-allergy" role="alert"></p>
+      </div>
+      <div class="full cake-actions">
+        <button type="submit" class="btn">Send my cake enquiry</button>
+        <p class="cake-note">This is a demonstration: nothing is really sent. Your enquiry stays in this browser and you can download it as a text file.</p>
+      </div>
+    </form>
+
+    <div id="cake-done" class="cake-done" hidden tabindex="-1" aria-live="polite"></div>
+
+    <div class="cake-saved" id="cake-saved" hidden>
+      <h3 style="font-family:var(--font-display);font-size:var(--fs-h3);margin:0">Your saved enquiries</h3>
+      <ul id="cake-list"></ul>
+    </div>
+  </div>
+</section>
+
+</main></body></html>
